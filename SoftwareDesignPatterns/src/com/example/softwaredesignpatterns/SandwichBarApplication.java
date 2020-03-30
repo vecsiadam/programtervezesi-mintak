@@ -1,5 +1,6 @@
 package com.example.softwaredesignpatterns;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SandwichBarApplication {
@@ -36,14 +37,37 @@ public class SandwichBarApplication {
 
 		sandwichMaker1.addSubordinate(clerk1);
 
+		List<Employee> noSubordinatedEmployee = new ArrayList<>();
+
 		System.out.println(barManager);
 		for (Employee headEmployee : barManager.getSubordinates()) {
 			System.out.println(headEmployee);
 
 			for (Employee employee : headEmployee.getSubordinates()) {
 				System.out.println(employee);
+
+				if (employee.getSubordinates().isEmpty()) {
+					noSubordinatedEmployee.add(employee);
+				}
 			}
+
+			if (headEmployee.getSubordinates().isEmpty()) {
+				noSubordinatedEmployee.add(headEmployee);
+			}
+
 		}
+
+		// iterator
+		ListInterface<Employee> list = new EmployeeList(noSubordinatedEmployee);
+
+		Iterator<Employee> iterator = list.iterator();
+
+		System.out.println();
+		while (iterator.hasNext()) {
+			Employee currentEmployee = iterator.next();
+			System.out.println("Employee who hasn't got subordinates: " + currentEmployee.getName());
+		}
+
 	}
 
 }

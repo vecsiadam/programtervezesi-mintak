@@ -9,6 +9,10 @@ public class Employee {
 	private List<Sandwich> sandwiches;
 	private List<Employee> subordinates;
 
+	public Employee(String name) {
+		this.name = name;
+	}
+
 	public Employee(String name, String dept) {
 		this.name = name;
 		this.dept = dept;
