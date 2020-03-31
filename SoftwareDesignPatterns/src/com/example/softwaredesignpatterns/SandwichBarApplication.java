@@ -21,12 +21,12 @@ public class SandwichBarApplication {
 		Sandwich sandwich3 = new Sandwich("Sandwich", "Hmm not bad", List.of(tomato, bread));
 
 		// composite pattern
-		Employee barManager = new Employee("Juan Carlos", "Manager");
+		Employee barManager = new Employee("Carlos", "Manager");
 
-		Employee sandwichMaker1 = new Employee("Juan Alvares", "Sandwich maker");
+		Employee sandwichMaker1 = new Employee("Alvares", "Sandwich maker");
 		sandwichMaker1.addSandwich(sandwich1);
 
-		Employee sandwichMaker2 = new Employee("Juan Pablo", "Sandwich maker");
+		Employee sandwichMaker2 = new Employee("Pablo", "Sandwich maker");
 		sandwichMaker2.addSandwich(sandwich2);
 
 		Employee clerk1 = new Employee("Juan", "Clerk");
@@ -37,7 +37,7 @@ public class SandwichBarApplication {
 
 		sandwichMaker1.addSubordinate(clerk1);
 
-		List<Employee> noSubordinatedEmployee = new ArrayList<>();
+		List<Employee> noSubordinatedEmployees = new ArrayList<>();
 
 		System.out.println(barManager);
 		for (Employee headEmployee : barManager.getSubordinates()) {
@@ -47,18 +47,18 @@ public class SandwichBarApplication {
 				System.out.println(employee);
 
 				if (employee.getSubordinates().isEmpty()) {
-					noSubordinatedEmployee.add(employee);
+					noSubordinatedEmployees.add(employee);
 				}
 			}
 
 			if (headEmployee.getSubordinates().isEmpty()) {
-				noSubordinatedEmployee.add(headEmployee);
+				noSubordinatedEmployees.add(headEmployee);
 			}
 
 		}
 
 		// iterator
-		ListInterface<Employee> list = new EmployeeList(noSubordinatedEmployee);
+		ListInterface<Employee> list = new EmployeeList(noSubordinatedEmployees);
 
 		Iterator<Employee> iterator = list.iterator();
 

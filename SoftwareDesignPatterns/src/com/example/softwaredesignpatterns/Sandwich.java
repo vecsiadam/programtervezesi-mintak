@@ -49,7 +49,7 @@ public class Sandwich {
 			ingredientsInString.append(", ");
 		}
 		ingredientsInString.deleteCharAt(ingredientsInString.length() - 2);
-		return "Food [name=" + name + ", description=" + description + ", ingredients=" + ingredientsInString + "]";
+		return "Sandwich [name=" + name + ", description=" + description + ", ingredients=" + ingredientsInString + "]";
 	}
 
 }

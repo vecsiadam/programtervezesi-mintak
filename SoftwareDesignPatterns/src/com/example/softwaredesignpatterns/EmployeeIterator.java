@@ -4,11 +4,11 @@ import java.util.List;
 
 public class EmployeeIterator implements Iterator<Employee> {
 
-	private List<Employee> employee;
+	private List<Employee> employees;
 	private int position;
 
-	public EmployeeIterator(List<Employee> employee) {
-		this.employee = employee;
+	public EmployeeIterator(List<Employee> employees) {
+		this.employees = employees;
 		position = 0;
 	}
 
@@ -19,17 +19,17 @@ public class EmployeeIterator implements Iterator<Employee> {
 
 	@Override
 	public Employee next() {
-		return employee.get(position++);
+		return employees.get(position++);
 	}
 
 	@Override
 	public Employee currentItem() {
-		return employee.get(position);
+		return employees.get(position);
 	}
 
 	@Override
 	public boolean hasNext() {
-		if (position >= employee.size())
+		if (position >= employees.size())
 			return false;
 		return true;
 	}
